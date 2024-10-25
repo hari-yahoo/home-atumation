@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <!-- Power Supply Section -->
+  <!-- Input Protection -->
+  <rect x="50" y="50" width="200" height="150" fill="none" stroke="black" stroke-width="2"/>
+  <text x="60" y="70" font-size="14">Power Input Protection</text>
+  <path d="M20 100 H50" stroke="black" stroke-width="2"/>
+  <text x="25" y="95" font-size="12">12-24V</text>
+  <path d="M20 150 H50" stroke="black" stroke-width="2"/>
+  <text x="25" y="145" font-size="12">GND</text>
+  
+  <!-- TVS and EMI Protection -->
+  <circle cx="80" cy="100" r="10" fill="none" stroke="black"/>
+  <path d="M80 90 L80 110" stroke="black" stroke-width="2"/>
+  <path d="M75 110 L85 110" stroke="black" stroke-width="2"/>
+  
+  <!-- Fuse -->
+  <rect x="100" y="90" width="30" height="20" fill="none" stroke="black"/>
+  <text x="105" y="105" font-size="10">2A</text>
+  
+  <!-- DC-DC Converters -->
+  <rect x="300" y="50" width="200" height="150" fill="none" stroke="black" stroke-width="2"/>
+  <text x="310" y="70" font-size="14">Power Supply</text>
+  
+  <!-- 3.3V Converter -->
+  <rect x="320" y="90" width="160" height="30" fill="none" stroke="black"/>
+  <text x="330" y="110" font-size="12">3.3V Buck (MP2315)</text>
+  
+  <!-- 5V Converter -->
+  <rect x="320" y="140" width="160" height="30" fill="none" stroke="black"/>
+  <text x="330" y="160" font-size="12">5V Buck (MP2315)</text>
+  
+  <!-- MCU Section -->
+  <rect x="550" y="50" width="300" height="200" fill="none" stroke="black" stroke-width="2"/>
+  <text x="560" y="70" font-size="14">ESP32 MCU</text>
+  
+  <!-- ESP32 Chip -->
+  <rect x="600" y="100" width="200" height="100" fill="none" stroke="black"/>
+  <text x="650" y="150" font-size="12">ESP32-WROOM-32D</text>
+  
+  <!-- Crystal -->
+  <rect x="570" y="120" width="20" height="30" fill="none" stroke="black"/>
+  <text x="575" y="140" font-size="8">40MHz</text>
+  
+  <!-- I/O Section -->
+  <rect x="50" y="250" width="400" height="300" fill="none" stroke="black" stroke-width="2"/>
+  <text x="60" y="270" font-size="14">I/O Interfaces</text>
+  
+  <!-- Optoisolators -->
+  <rect x="70" y="300" width="160" height="80" fill="none" stroke="black"/>
+  <text x="80" y="320" font-size="12">Optoisolated Inputs</text>
+  <path d="M90 330 L110 330 L100 350 Z" fill="none" stroke="black"/>
+  <path d="M120 330 L140 330 L130 350 Z" fill="none" stroke="black"/>
+  
+  <!-- Relays -->
+  <rect x="70" y="400" width="160" height="80" fill="none" stroke="black"/>
+  <text x="80" y="420" font-size="12">Relay Outputs</text>
+  <path d="M90 430 L140 460" stroke="black" stroke-width="2"/>
+  <path d="M90 460 L140 430" stroke="black" stroke-width="2"/>
+  
+  <!-- Communication Section -->
+  <rect x="550" y="300" width="300" height="250" fill="none" stroke="black" stroke-width="2"/>
+  <text x="560" y="320" font-size="14">Communication Interfaces</text>
+  
+  <!-- RS485 -->
+  <rect x="570" y="350" width="120" height="60" fill="none" stroke="black"/>
+  <text x="580" y="370" font-size="12">RS485</text>
+  <text x="580" y="390" font-size="10">MAX485</text>
+  
+  <!-- CAN -->
+  <rect x="700" y="350" width="120" height="60" fill="none" stroke="black"/>
+  <text x="710" y="370" font-size="12">CAN Bus</text>
+  <text x="710" y="390" font-size="10">MCP2515</text>
+  
+  <!-- Safety Section -->
+  <rect x="50" y="600" width="250" height="200" fill="none" stroke="black" stroke-width="2"/>
+  <text x="60" y="620" font-size="14">Safety Circuit</text>
+  
+  <!-- Watchdog -->
+  <rect x="70" y="650" width="100" height="60" fill="none" stroke="black"/>
+  <text x="80" y="670" font-size="12">Watchdog</text>
+  <text x="80" y="690" font-size="10">ATTINY85</text>
+  
+  <!-- Emergency Stop -->
+  <circle cx="200" cy="680" r="20" fill="none" stroke="red" stroke-width="2"/>
+  <text x="185" y="685" font-size="12" fill="red">E-STOP</text>
+  
+  <!-- Extension Header -->
+  <rect x="900" y="50" width="250" height="400" fill="none" stroke="black" stroke-width="2"/>
+  <text x="910" y="70" font-size="14">Extension Headers</text>
+  
+  <!-- Headers -->
+  <path d="M920 100 H1130" stroke="black" stroke-width="2"/>
+  <circle cx="940" cy="100" r="3" fill="black"/>
+  <circle cx="960" cy="100" r="3" fill="black"/>
+  <circle cx="980" cy="100" r="3" fill="black"/>
+  <text x="920" y="90" font-size="10">I²C Bus</text>
+  
+  <path d="M920 150 H1130" stroke="black" stroke-width="2"/>
+  <circle cx="940" cy="150" r="3" fill="black"/>
+  <circle cx="960" cy="150" r="3" fill="black"/>
+  <circle cx="980" cy="150" r="3" fill="black"/>
+  <text x="920" y="140" font-size="10">SPI Bus</text>
+  
+  <!-- Connections -->
+  <path d="M250 100 H300" stroke="black" stroke-width="2"/>
+  <path d="M500 105 H550" stroke="black" stroke-width="2"/>
+  <path d="M500 155 H550" stroke="black" stroke-width="2"/>
+</svg>
