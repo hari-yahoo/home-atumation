@@ -16,13 +16,13 @@ def devices():
 
 @app.route("/start/<int:id>")
 def start(id):
-  control(id, "start")
-
+  status = control(id, "start")
+  return f"Status is {status}"
 
 @app.route("/stop/<int:id>")
 def stop(id):
-  control(id, "stop")
-
+  status = control(id, "stop")
+  return f"Status is {status}"
 
 def control(pin, operation):
   GPIO.setmode(GPIO.BCM)
@@ -32,4 +32,5 @@ def control(pin, operation):
     GPIO.output(pin, GPIO.HIGH)
   else:
     GPIO.output(pin, GPIO.LOW)
+  return GPIO.input(pin)
     
