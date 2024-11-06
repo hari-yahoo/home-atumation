@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import RPi.GPIO as GPIO
 
 
@@ -28,8 +28,12 @@ def stop(id):
 def status(id):
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
-  GPIO.setup(pin, GPIO.OUT)
-  return GPIO.input(id)
+  GPIO.setup(id, GPIO.OUT)
+
+  res = {
+    "status" : GPIO.input(id)
+  }
+  return jsonify(res)
 
 def control(pin, operation):
   GPIO.setmode(GPIO.BCM)
