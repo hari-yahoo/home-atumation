@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Home Automation</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script>
+    $( ()=> {
+      $("input").onClick( (e) =>{
+        console.log(e.val());
+        
+        console.log(e.attr('checked'));
+        let activate = e.attr('checked');
+        let id = e.val();
+        
+        if (activate) {
+          $.get("/start/" + id, (data) => {
+               $( ".result" ).html( data );
+              });
+        } else {
+                $.get("/stop/" + id, (data) => {
+               $( ".result" ).html( data );
+              });
+    
+        }
+  
+      });
+    })
+  </script>
+</head>
+<body>
+  <main class="container">
+    <form>
+      <fieldset>
+        <label>
+          Car porch Light
+          <input name="light1" value="14" type="checkbox" role="switch" />
+        </label>
+        <label>
+          Bed room light
+          <input name="light2" value="15" type="checkbox" role="switch"  />
+          
+        </label>
+        <label>
+          Terrace Light
+          <input name="light3" value="17" type="checkbox" role="switch"  />
+          
+        </label>
+        <label>
+          Gate Light
+          <input name="light4" value="18" type="checkbox" role="switch"  />
+          
+        </label>
+      </fieldset>
+    </form>
+    <div class="result"></div>
+  </main>
+</body>
+</html>
