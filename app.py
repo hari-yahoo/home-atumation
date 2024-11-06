@@ -24,6 +24,13 @@ def stop(id):
   status = control(id, "stop")
   return f"Status is {status}"
 
+@app.route("/status/<int:id>")
+def status(id):
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setwarnings(False)
+  GPIO.setup(pin, GPIO.OUT)
+  return GPIO.input(id)
+
 def control(pin, operation):
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)

@@ -2,61 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <title>Home Automation</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <title>Home Automation</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
   <script>
-    $( ()=> {
-      $("input").on ("click",  (e) =>{
-        console.log(e.val());
-        
-        console.log(e.attr('checked'));
-        let activate = e.attr('checked');
-        let id = e.val();
-        
+    $(() => {
+      $("input").on("click", (e) => {
+        console.log($(e.target).val());
+
+        console.log(e.target.checked);
+        let activate = e.target.checked;
+        let id = $(e.target).val();
+
         if (activate) {
           $.get("/start/" + id, (data) => {
-               $( ".result" ).html( data );
-              });
+            $(".result").html(data);
+          });
         } else {
-                $.get("/stop/" + id, (data) => {
-               $( ".result" ).html( data );
-              });
-    
+          $.get("/stop/" + id, (data) => {
+            $(".result").html(data);
+          });
+
         }
-  
+
       });
+
+      const devices = [14, 15, 17, 18];
+
+      for (const device of devices) {
+      
+        $.get("/status/" + device, (data) => {
+            if (data.status)
+              $('#status' + device).text("ON")
+            else
+              $('#status' + device).text("OFF")
+        })
+      }
     })
   </script>
 </head>
+
 <body>
   <main class="container">
     <form>
       <fieldset>
         <label>
           Car porch Light
-          <input name="light1" value="14" type="checkbox" role="switch" />
+          <input id="light14" name="light14" value="14" type="checkbox" role="switch" />
+          <span id="status14"></span>
         </label>
         <label>
           Bed room light
-          <input name="light2" value="15" type="checkbox" role="switch"  />
-          
+          <input id="light15" name="light15" value="15" type="checkbox" role="switch" />
+          <span id="status15"></span>
         </label>
         <label>
           Terrace Light
-          <input name="light3" value="17" type="checkbox" role="switch"  />
-          
+          <input id="light17" name="light17" value="17" type="checkbox" role="switch" />
+          <span id="status17"></span>
         </label>
         <label>
           Gate Light
-          <input name="light4" value="18" type="checkbox" role="switch"  />
-          
+          <input id="light18" name="light18" value="18" type="checkbox" role="switch" />
+          <span id="status18"></span>
         </label>
       </fieldset>
     </form>
+    <p>Result from Server is </p>
     <div class="result"></div>
   </main>
 </body>
+
 </html>
